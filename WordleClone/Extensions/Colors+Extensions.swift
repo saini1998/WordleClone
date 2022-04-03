@@ -17,6 +17,9 @@ extension Color{
     static var unused: Color{
         Color(UIColor(named: "unused")!)
     }
+    static var correct: Color{
+        Color(UIColor(named: "correct")!)
+    }
     static var systemBackground: Color{
         Color(.systemBackground)
     }
