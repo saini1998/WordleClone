@@ -29,12 +29,28 @@ struct GameView: View {
                 Spacer()
             }
             .navigationBarTitleDisplayMode(.inline)
+            .overlay(alignment: .top){
+                if let toastText = dm.toastText{
+                    ToastView(toastText: toastText)
+                        .offset(y: 20)
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading){
-                    Button{
-                        
-                    }label: {
-                        Image(systemName: "questionmark.circle")
+                    HStack{
+                        if !dm.inPlay{
+                            Button{
+                                dm.newGame()
+                            }label: {
+                                Text("NEW")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        Button{
+                            
+                        }label: {
+                            Image(systemName: "questionmark.circle")
+                        }
                     }
                 }
                 ToolbarItem(placement: .principal){
